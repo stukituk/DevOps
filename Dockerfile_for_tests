@@ -1,12 +1,9 @@
-FROM python:3-onbuild
-EXPOSE 5000
-ARG dir
+FROM python:3
 
-COPY . dir/docker-lab0-stukituk/
-WORKDIR dir/docker-lab0-stukituk/
+COPY . .
 RUN python3 -m venv venv
 RUN . venv/bin/activate
-RUN pip install -e .
-RUN pip install '.[test]'
-RUN coverage run -m pytest
-ENTRYPOINT coverage html
+RUN pip install -e '.[test]'
+CMD coverage run -m pytest
+#RUN coverage run -m pytest
+#ENTRYPOINT coverage html
