@@ -60,7 +60,7 @@ jobs:
             docker push ${{ secrets.DOCKER_LOGIN }}/$PROJECT_NAME:latest
      
   Deploy:
-    runs-on: [macOS]
+    runs-on: [ubuntu-latest]
     needs: [ Push_to_docker ]
     steps:
      - uses: actions/checkout@v2
