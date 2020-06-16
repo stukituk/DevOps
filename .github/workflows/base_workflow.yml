@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build test container
-        run: sudo docker build -t $PROJECT_NAME:_Test -f Dockerfile_for_tests . --build-arg .
+        run: sudo docker build -t $PROJECT_NAME:_Test -f dockerfile_for_tests . --build-arg .
       - name: Run testing
         run: |
           mkdir artifacts
